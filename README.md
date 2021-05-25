@@ -10,4 +10,4 @@ Dado os itens solicitados, construído o formulário com todos os itens, listage
 O projeto foi desenvolvido usando a IDE Eclipse e o Tomcat v9.0.
 
 ## Erros
-CPF não suportado na adição.
+CPF não suportado na adição. Botão de Excluir desestabilizava o sistema, portanto foi feito apenas o método.
