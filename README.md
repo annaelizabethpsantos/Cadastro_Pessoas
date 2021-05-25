@@ -1,5 +1,5 @@
 # Cadastro de pessoas
-CRUD feito com JSF, JPA, Hibernate e Primeface
+CRUD feito com JSF e Primeface
 
 Aplicação web solicitada como desafio para ingresso na empresa Processo Ágil.
 
