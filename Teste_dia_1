@@ -1,0 +1,234 @@
+using MongoDB.Bson;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+namespace TESTE_Elizabeth
+{
+    public partial class _Default : Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
+            BsonDocument json = new BsonDocument();
+
+            json["_id"] = "60830788105a8666c553b54f";
+            json["indice"] = "8.01.0001.2012.0015773 - 64";
+            json["_id"] = "60830788105a8666c553b54f";
+            json["Processos"] = new BsonDocument(){
+                    { "8_01_ESAJ_1", new BsonDocument() {
+                        { "Numero", "0015773-64.2012.8.01.0001" },
+                        { "Instancia", "8.01.ESAJ.1" },
+                        { "NumeroAntigo", null },
+                        { "Classe", "Cumprimento de sentença" },
+                        { "Assunto", "Efeito Suspensivo / Impugnação / Embargos à Execução" },
+                        { "Foro", "Rio Branco" },
+                        { "Data", "2013-01-11T00:00:00.000Z" },
+                        { "Vara", "2ª Vara Cível" },
+                        { "Juiz", "Thaís Queiroz B. de Oliveira A. Khalil" },
+                        { "Valor", "R$         352.500,00" },
+                        { "Area", "Cível" },
+                        { "OutrosNumero", null },
+                        { "Fase", null },
+                        { "Segredo", false },
+                        { "LocalFisico", null },
+                        { "Colegiado", null },
+                        { "Partes", new BsonArray(){
+                            new BsonDocument()
+                            {
+                                { "Categoria", "CREDOR" },
+                                { "Nome", "NILCE¿S TUR AGÊNCIA DE VIAGENS E TURISMO LTDA" },
+                                { "Advogados", new BsonArray() {
+                                    new BsonDocument()
+                                    {
+                                        { "Categoria", "ADVOGADO" },
+                                        { "Nome", "RODRIGO AIACHE CORDEIRO" }
+                                    }
+                                } }
+                            },
+                            new BsonDocument()
+                            {
+                                { "Categoria", "DEVEDOR" },
+                                { "Nome", "JOHONNIS DE ARAÚJO MEDEIROS" },
+                                { "Advogados", new BsonArray() {
+                                    new BsonDocument()
+                                    {
+                                         { "Categoria", "ADVOGADO" },
+                                        { "Nome", "LUCAS VIEIRA CARVALHO" },
+                                    },
+                                    new BsonDocument()
+                                    {
+                                        { "Categoria", "ADVOGADO" },
+                                        { "Nome", "MARIA LUCIEUDA S. S. CASTRO" }
+                                    },
+                                    new BsonDocument()
+                                    {
+                                        { "Categoria", "ADVOGADO" },
+                                        { "Nome", "MARCUS VENICIUS NUNES DA SILVA" }
+                                    },
+                                    new BsonDocument()
+                                    {
+                                        { "Categoria", "ADVOGADO" },
+                                        { "Nome", "JOÃO PAULO DE SOUSA OLIVEIRA" }
+                                    },
+                                    new BsonDocument()
+                                    {
+                                        { "Categoria", "ADVOGADO" },
+                                        { "Nome", "LEONARDO SIMÃO DE ARAÚJO" }
+                                    }
+                                } }
+                            }
+                        } },
+                        { "Andamento", new BsonArray(){
+                            new BsonDocument()
+                            {
+                                { "Data", "2021-04-13T00:00:00.000Z" },
+                                { "Corpo", "Juntada de Petição Nº Protocolo: WEB1.21.70021127-7 Tipo da Petição: Pedido de Expedição de Alvará Data: 13/04/2021 09:32" }
+                            },
+                            new BsonDocument()
+                            {
+                                { "Data", "2021-04-05T00:00:00.000Z" },
+                                { "Corpo", "Disponibilizado no DJ Eletrônico Relação :0042/2021 Data da Disponibilização: 05/04/2021 Data da Publicação: 06/04/2021 Número do Diário: 6.803 Página: 47/50" }
+                            },
+                            new BsonDocument()
+                            {
+                                { "Data", "2021-03-31T00:00:00.000Z" },
+                                { "Corpo", "Expedida/Certificada Relação: 0042/2021 Teor do ato: Dá a parte credora por intimada para, no prazo de 15 (quinze) dias, manifestar-se acerca de novos documentos juntados aos autos, às pp. 455/458, requerendo o que entender de direito. Advogados(s): Rodrigo Aiache Cordeiro (OAB 2780/AC), Robson Shelton Medeiros da Silva (OAB 3444/AC), Lucas Vieira Carvalho (OAB 3456/AC), Leonardo Simão de Araújo (OAB 3862/AC), MARCUS VENICIUS NUNES DA SILVA (OAB 3886/AC), MARIA LUCIEUDA S. S. CASTRO (OAB 4099/AC), João Paulo de Sousa Oliveira (OAB 4179/AC)" }
+                            }
+                        } }
+                    } },
+                    { "8_01_ESAJ_2", new BsonDocument() {
+                        { "Numero", "0015773-64.2012.8.01.0001" },
+                        { "Instancia", "8.01.ESAJ.2" },
+                        { "NumeroAntigo", null },
+                        { "Classe", "Apelação Cível" },
+                        { "Assunto", "Efeito Suspensivo / Impugnação / Embargos à Execução" },
+                        { "Foro", null },
+                        { "Data", "2016-08-01T00:00:00.000Z" },
+                        { "Vara", "Segunda Câmara Cível" },
+                        { "Juiz", "ROBERTO BARROS" },
+                        { "Valor", null },
+                        { "Area", "Cível" },
+                        { "OutrosNumero", "0015773-64.2012.8.01.0001" },
+                        { "Fase", null },
+                        { "Segredo", false },
+                        { "LocalFisico", null },
+                        { "Colegiado", null },
+                        { "Partes", new BsonArray(){
+                            new BsonDocument()
+                            {
+                                { "Categoria", "APELANTE" },
+                                { "Nome", "JOHONNIS DE ARAÚJO MEDEIROS" },
+                                { "Advogados", new BsonArray() {
+                                    new BsonDocument()
+                                    {
+                                         { "Categoria", "ADVOGADO" },
+                                         { "Nome", "GILLIARD SILVA DE SOUZA" }
+                                    }
+                                } }
+                            },
+                            new BsonDocument()
+                            {
+                                { "Categoria", "APELADO" },
+                                { "Nome", "NILCES TUR AGÊNCIA DE VIAGENS E TURISMO LTDA" },
+                                { "Advogados", new BsonArray() {
+                                    new BsonDocument()
+                                    {
+                                         { "Categoria", "ADVOGADO" },
+                                         { "Nome", "RODRIGO AIACHE CORDEIRO" }
+                                    }
+                                } }
+                            }
+                        } },
+                         { "Andamentos", new BsonArray(){
+                            new BsonDocument()
+                            {
+                                { "Data", "2017-05-08T00:00:00.000Z" },
+                                { "Corpo", "Remetidos os Autos (em diligência) para Secretaria Certidão - Baixa de Recurso" }
+                            },
+                            new BsonDocument()
+                            {
+                                 { "Data", "2017-05-08T00:00:00.000Z" },
+                                 { "Corpo", "Baixa Definitiva" }
+                            },
+                            new BsonDocument()
+                            {
+                                { "Data", "2017-05-08T00:00:00.000Z" },
+                                { "Corpo", "Transitado em Julgado em &#034;data&#034; TRÂNSITO EM JULGADO Certifico que, transcorrido in albis o prazo para interposição de eventual recurso, a decisão monocrática, proferida às páginas 218/223, transitou em julgado para as partes no dia 03.05.2017." }
+                            }
+                         } }
+                    } },
+                 { "UltimaAtualizacao", "2021-05-22T13:16:39.799Z" },
+                 { "ano", "2012" },
+                 { "date", "2021-05-22T13:16:39.799Z" },
+                 { "ej", false },
+                 { "estado", "ac" },
+                 { "estadoDoProcesso", "baixado" },
+                 { "namespace", "su.module.legal.lawsuit.0015773-64.2012.8.01.0001" },
+                 { "padrao", "cnj" },
+                 { "processoOriginal", "" },
+                 { "setorjustica", "comum" },
+                 { "tribunal", "tjac" },
+                 { "Tag", new BsonArray(){
+                     { "NILCE¿S TUR AGÊNCIA DE VIAGENS E TURISMO LTDA" },
+                     { "RODRIGO AIACHE CORDEIRO" },
+                     { "JOHONNIS DE ARAÚJO MEDEIROS" },
+                     { "LUCAS VIEIRA CARVALHO" },
+                     { "MARIA LUCIEUDA S. S. CASTRO" },
+                     { "MARCUS VENICIUS NUNES DA SILVA" },
+                     { "ROBSON SHELTON MEDEIROS DA SILVA" },
+                     { "JOÃO PAULO DE SOUSA OLIVEIRA" },
+                     { "LEONARDO SIMÃO DE ARAÚJO" },
+                     { "0015773-64.2012.8.01.0001" },
+                     { "8.01.ESAJ.1" },
+                     { "8.01" },
+                     { "GILLIARD SILVA DE SOUZA" },
+                     { "GILIARD SILVA DE SOUZA" },
+                     { "NILCES TUR AGÊNCIA DE VIAGENS E TURISMO LTDA" },
+                     { "8.01.ESAJ.2" }
+                 } },
+                { "Tag", new BsonArray(){
+                     new BsonDocument(){
+                         { "nome", "NILCE¿S TUR AGÊNCIA DE VIAGENS E TURISMO LTDA" }
+                     },
+                     new BsonDocument(){
+                         { "tipoParte", "reu"}
+                     },
+                     new BsonDocument(){
+                         { "nome", "RODRIGO AIACHE CORDEIRO" }
+                     },
+                     new BsonDocument(){
+                         { "tipoParte", "advogado" }
+                     },
+                     new BsonDocument(){
+                         { "nome", "JOHONNIS DE ARAÚJO MEDEIROS" }
+                     },
+                     new BsonDocument(){
+                         { "tipoParte", "outro" }
+                     }
+                 } }
+            };
+            json["Classes"] = new BsonArray()
+            {
+                "Cumprimento de sentença",
+                "Apelação Cível"
+            };
+            json["Varas"] = new BsonArray()
+            {
+                 "2ª Vara Cível",
+                 "Segunda Câmara Cível"
+            };
+            json["Assuntos"] = "Efeito Suspensivo / Impugnação / Embargos à Execução";
+
+            Console.WriteLine("teste");
+
+            Console.WriteLine(json.ToJson());
+
+            teste.InnerHtml = json.ToJson();
+
+        }
+    }
+}
