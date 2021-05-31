@@ -22,7 +22,7 @@ namespace TESTE_Elizabeth
                     { "8_01_ESAJ_1", new BsonDocument() {
                         { "Numero", "0015773-64.2012.8.01.0001" },
                         { "Instancia", "8.01.ESAJ.1" },
-                        { "NumeroAntigo", null },
+                        { "NumeroAntigo", BsonNull.Value },
                         { "Classe", "Cumprimento de sentença" },
                         { "Assunto", "Efeito Suspensivo / Impugnação / Embargos à Execução" },
                         { "Foro", "Rio Branco" },
@@ -31,11 +31,11 @@ namespace TESTE_Elizabeth
                         { "Juiz", "Thaís Queiroz B. de Oliveira A. Khalil" },
                         { "Valor", "R$         352.500,00" },
                         { "Area", "Cível" },
-                        { "OutrosNumero", null },
-                        { "Fase", null },
+                        { "OutrosNumero", BsonNull.Value },
+                        { "Fase", BsonNull.Value },
                         { "Segredo", false },
-                        { "LocalFisico", null },
-                        { "Colegiado", null },
+                        { "LocalFisico", BsonNull.Value },
+                        { "Colegiado", BsonNull.Value },
                         { "Partes", new BsonArray(){
                             new BsonDocument()
                             {
@@ -103,20 +103,20 @@ namespace TESTE_Elizabeth
                     { "8_01_ESAJ_2", new BsonDocument() {
                         { "Numero", "0015773-64.2012.8.01.0001" },
                         { "Instancia", "8.01.ESAJ.2" },
-                        { "NumeroAntigo", null },
+                        { "NumeroAntigo", BsonNull.Value },
                         { "Classe", "Apelação Cível" },
                         { "Assunto", "Efeito Suspensivo / Impugnação / Embargos à Execução" },
-                        { "Foro", null },
+                        { "Foro", BsonNull.Value },
                         { "Data", "2016-08-01T00:00:00.000Z" },
                         { "Vara", "Segunda Câmara Cível" },
                         { "Juiz", "ROBERTO BARROS" },
-                        { "Valor", null },
+                        { "Valor", BsonNull.Value },
                         { "Area", "Cível" },
                         { "OutrosNumero", "0015773-64.2012.8.01.0001" },
-                        { "Fase", null },
+                        { "Fase", BsonNull.Value },
                         { "Segredo", false },
-                        { "LocalFisico", null },
-                        { "Colegiado", null },
+                        { "LocalFisico", BsonNull.Value },
+                        { "Colegiado", BsonNull.Value },
                         { "Partes", new BsonArray(){
                             new BsonDocument()
                             {
@@ -190,23 +190,17 @@ namespace TESTE_Elizabeth
                      { "NILCES TUR AGÊNCIA DE VIAGENS E TURISMO LTDA" },
                      { "8.01.ESAJ.2" }
                  } },
-                { "Tag", new BsonArray(){
+                { "tipoPartes", new BsonArray(){
                      new BsonDocument(){
-                         { "nome", "NILCE¿S TUR AGÊNCIA DE VIAGENS E TURISMO LTDA" }
-                     },
-                     new BsonDocument(){
+                         { "nome", "NILCE¿S TUR AGÊNCIA DE VIAGENS E TURISMO LTDA" },
                          { "tipoParte", "reu"}
                      },
                      new BsonDocument(){
-                         { "nome", "RODRIGO AIACHE CORDEIRO" }
-                     },
-                     new BsonDocument(){
+                         { "nome", "RODRIGO AIACHE CORDEIRO" },
                          { "tipoParte", "advogado" }
                      },
                      new BsonDocument(){
-                         { "nome", "JOHONNIS DE ARAÚJO MEDEIROS" }
-                     },
-                     new BsonDocument(){
+                         { "nome", "JOHONNIS DE ARAÚJO MEDEIROS" },
                          { "tipoParte", "outro" }
                      }
                  } }
