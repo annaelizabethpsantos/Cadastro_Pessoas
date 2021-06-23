@@ -1,0 +1,337 @@
+##HTML
+
+<%@ Page Title="Contact" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Contact.aspx.cs" Inherits="TESTE_Elizabeth.Contact" %>
+
+<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+
+    <p id="demo"></p>
+    <div class="card" style="width: 50rem;" id="card">
+      <div class="card-header">
+        <h4>Andamentos:</h4>
+      </div>
+      <ul class="list-group list-group-flush" id="andamentos">
+          <li class="list-group-item" id="Data0" />
+          <li class="list-group-item" id="Corpo0" />
+          <li class="list-group-item" id="Data1" />
+          <li class="list-group-item" id="Corpo1" />
+          <li class="list-group-item" id="Data2" />
+          <li class="list-group-item" id="Corpo2" />
+      </ul>
+    </div>
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            const url = "https://localhost:44356/WebService1.asmx/carregarDados";
+
+            $.ajax({
+                type: "POST",
+                url: "WebService1.asmx/carregarDados",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                data: "",
+                success: function (msg) {
+                    console.log(msg.d)
+                    var dados = JSON.parse(msg.d);
+
+                    document.getElementById("demo").innerHTML = `
+                        <h3>Número do Processo: ${dados.Processos['8_01_ESAJ_1']['Numero']} </h3>
+                        <h5>Instância: ${dados.Processos['8_01_ESAJ_1']['Instancia']}</h5>
+
+                        <br/>
+
+                        <h4>Número Antigo: ${dados.Processos['8_01_ESAJ_1']['NumeroAntigo']}</h4>
+                        <h4>Classe: ${dados.Processos['8_01_ESAJ_1']['Classe']}</h4>
+                        <h4>Assunto: ${dados.Processos['8_01_ESAJ_1']['Assunto']}</h4>
+                        <h4>Foro: ${dados.Processos['8_01_ESAJ_1']['Foro']}</h4>
+                        <h4>Data: ${dados.Processos['8_01_ESAJ_1']['Data']}</h4>
+                        <h4>Vara: ${dados.Processos['8_01_ESAJ_1']['Vara']}</h4>
+                        <h4>Juiz: ${dados.Processos['8_01_ESAJ_1']['Juiz']}</h4>
+                        <h4>Valor: ${dados.Processos['8_01_ESAJ_1']['Valor']}</h4>
+                        <h4>Área: ${dados.Processos['8_01_ESAJ_1']['Area']}</h4>
+                        <h4>Outros Números: ${dados.Processos['8_01_ESAJ_1']['OutrosNumero']}</h4>
+                        <h4>Fase: ${dados.Processos['8_01_ESAJ_1']['Fase']}</h4>
+                        <h4>Segredo: ${dados.Processos['8_01_ESAJ_1']['Segredo']}</h4>
+                        <h4>Local Físico: ${dados.Processos['8_01_ESAJ_1']['LocalFisico']}</h4>
+                        <h4>Colegiado: ${dados.Processos['8_01_ESAJ_1']['Colegiado']}</h4>
+
+                        <h4>Andamentos:</h4>
+                    `
+                    document.getElementById("Data0").innerHTML = `
+                        <h5>Data: ${dados.Processos['8_01_ESAJ_1']['Andamento'][0]['Data']}</h5>
+                    `
+                    document.getElementById("Corpo0").innerHTML = `
+                        <h5>Corpo: ${dados.Processos['8_01_ESAJ_1']['Andamento'][0]['Corpo']}</h5>
+                    `
+                    document.getElementById("Data1").innerHTML = `
+                        <h5>Data: ${dados.Processos['8_01_ESAJ_1']['Andamento'][1]['Data']}</h5>
+                    `
+                    document.getElementById("Corpo1").innerHTML = `
+                        <h5>Corpo: ${dados.Processos['8_01_ESAJ_1']['Andamento'][1]['Corpo']}</h5>
+                    `
+                    document.getElementById("Data2").innerHTML = `
+                        <h5>Data: ${dados.Processos['8_01_ESAJ_1']['Andamento'][2]['Data']}</h5>
+                    `
+                    document.getElementById("Corpo2").innerHTML = `
+                        <h5>Corpo: ${dados.Processos['8_01_ESAJ_1']['Andamento'][2]['Corpo']}</h5>
+                    `
+                }
+            });
+
+           
+        });
+
+    </script>
+</asp:Content>
+
+
+##ASMX
+
+using MongoDB.Bson;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Web.Services;
+using System.Web.Script.Services;
+
+namespace TESTE_Elizabeth
+{
+    /// <summary>
+    /// Descrição resumida de WebService1
+    /// </summary>
+    [WebService(Namespace = "http://tempuri.org/")]
+    [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
+    [System.ComponentModel.ToolboxItem(false)]
+    // Para permitir que esse serviço da web seja chamado a partir do script, usando ASP.NET AJAX, remova os comentários da linha a seguir. 
+    [System.Web.Script.Services.ScriptService]
+    public class WebService1 : System.Web.Services.WebService
+    {
+
+        [WebMethod]
+        public string HelloWorld()
+        {
+            return "Processo Ágil";
+        }
+
+        
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public string carregarDados()
+        {
+            BsonDocument json = new BsonDocument();
+
+            json["_id"] = "60830788105a8666c553b54f";
+            json["indice"] = "8.01.0001.2012.0015773 - 64";
+            json["Processos"] = new BsonDocument(){
+                    { "8_01_ESAJ_1", new BsonDocument() {
+                        { "Numero", "0015773-64.2012.8.01.0001" },
+                        { "Instancia", "8.01.ESAJ.1" },
+                        { "NumeroAntigo", BsonNull.Value },
+                        { "Classe", "Cumprimento de sentença" },
+                        { "Assunto", "Efeito Suspensivo / Impugnação / Embargos à Execução" },
+                        { "Foro", "Rio Branco" },
+                        { "Data", "2013-01-11T00:00:00.000Z" },
+                        { "Vara", "2ª Vara Cível" },
+                        { "Juiz", "Thaís Queiroz B. de Oliveira A. Khalil" },
+                        { "Valor", "R$         352.500,00" },
+                        { "Area", "Cível" },
+                        { "OutrosNumero", BsonNull.Value },
+                        { "Fase", BsonNull.Value },
+                        { "Segredo", false },
+                        { "LocalFisico", BsonNull.Value },
+                        { "Colegiado", BsonNull.Value },
+                        { "Partes", new BsonArray(){
+                            new BsonDocument()
+                            {
+                                { "Categoria", "CREDOR" },
+                                { "Nome", "NILCE¿S TUR AGÊNCIA DE VIAGENS E TURISMO LTDA" },
+                                { "Advogados", new BsonArray() {
+                                    new BsonDocument()
+                                    {
+                                        { "Categoria", "ADVOGADO" },
+                                        { "Nome", "RODRIGO AIACHE CORDEIRO" }
+                                    }
+                                } }
+                            },
+                            new BsonDocument()
+                            {
+                                { "Categoria", "DEVEDOR" },
+                                { "Nome", "JOHONNIS DE ARAÚJO MEDEIROS" },
+                                { "Advogados", new BsonArray() {
+                                    new BsonDocument()
+                                    {
+                                         { "Categoria", "ADVOGADO" },
+                                        { "Nome", "LUCAS VIEIRA CARVALHO" },
+                                    },
+                                    new BsonDocument()
+                                    {
+                                        { "Categoria", "ADVOGADO" },
+                                        { "Nome", "MARIA LUCIEUDA S. S. CASTRO" }
+                                    },
+                                    new BsonDocument()
+                                    {
+                                        { "Categoria", "ADVOGADO" },
+                                        { "Nome", "MARCUS VENICIUS NUNES DA SILVA" }
+                                    },
+                                    new BsonDocument()
+                                    {
+                                        { "Categoria", "ADVOGADO" },
+                                        { "Nome", "JOÃO PAULO DE SOUSA OLIVEIRA" }
+                                    },
+                                    new BsonDocument()
+                                    {
+                                        { "Categoria", "ADVOGADO" },
+                                        { "Nome", "LEONARDO SIMÃO DE ARAÚJO" }
+                                    }
+                                } }
+                            }
+                        } },
+                        { "Andamento", new BsonArray(){
+                            new BsonDocument()
+                            {
+                                { "Data", "2021-04-13T00:00:00.000Z" },
+                                { "Corpo", "Juntada de Petição Nº Protocolo: WEB1.21.70021127-7 Tipo da Petição: Pedido de Expedição de Alvará Data: 13/04/2021 09:32" }
+                            },
+                            new BsonDocument()
+                            {
+                                { "Data", "2021-04-05T00:00:00.000Z" },
+                                { "Corpo", "Disponibilizado no DJ Eletrônico Relação :0042/2021 Data da Disponibilização: 05/04/2021 Data da Publicação: 06/04/2021 Número do Diário: 6.803 Página: 47/50" }
+                            },
+                            new BsonDocument()
+                            {
+                                { "Data", "2021-03-31T00:00:00.000Z" },
+                                { "Corpo", "Expedida/Certificada Relação: 0042/2021 Teor do ato: Dá a parte credora por intimada para, no prazo de 15 (quinze) dias, manifestar-se acerca de novos documentos juntados aos autos, às pp. 455/458, requerendo o que entender de direito. Advogados(s): Rodrigo Aiache Cordeiro (OAB 2780/AC), Robson Shelton Medeiros da Silva (OAB 3444/AC), Lucas Vieira Carvalho (OAB 3456/AC), Leonardo Simão de Araújo (OAB 3862/AC), MARCUS VENICIUS NUNES DA SILVA (OAB 3886/AC), MARIA LUCIEUDA S. S. CASTRO (OAB 4099/AC), João Paulo de Sousa Oliveira (OAB 4179/AC)" }
+                            }
+                        } }
+                    } },
+                    { "8_01_ESAJ_2", new BsonDocument() {
+                        { "Numero", "0015773-64.2012.8.01.0001" },
+                        { "Instancia", "8.01.ESAJ.2" },
+                        { "NumeroAntigo", BsonNull.Value },
+                        { "Classe", "Apelação Cível" },
+                        { "Assunto", "Efeito Suspensivo / Impugnação / Embargos à Execução" },
+                        { "Foro", BsonNull.Value },
+                        { "Data", "2016-08-01T00:00:00.000Z" },
+                        { "Vara", "Segunda Câmara Cível" },
+                        { "Juiz", "ROBERTO BARROS" },
+                        { "Valor", BsonNull.Value },
+                        { "Area", "Cível" },
+                        { "OutrosNumero", "0015773-64.2012.8.01.0001" },
+                        { "Fase", BsonNull.Value },
+                        { "Segredo", false },
+                        { "LocalFisico", BsonNull.Value },
+                        { "Colegiado", BsonNull.Value },
+                        { "Partes", new BsonArray(){
+                            new BsonDocument()
+                            {
+                                { "Categoria", "APELANTE" },
+                                { "Nome", "JOHONNIS DE ARAÚJO MEDEIROS" },
+                                { "Advogados", new BsonArray() {
+                                    new BsonDocument()
+                                    {
+                                         { "Categoria", "ADVOGADO" },
+                                         { "Nome", "GILLIARD SILVA DE SOUZA" }
+                                    }
+                                } }
+                            },
+                            new BsonDocument()
+                            {
+                                { "Categoria", "APELADO" },
+                                { "Nome", "NILCES TUR AGÊNCIA DE VIAGENS E TURISMO LTDA" },
+                                { "Advogados", new BsonArray() {
+                                    new BsonDocument()
+                                    {
+                                         { "Categoria", "ADVOGADO" },
+                                         { "Nome", "RODRIGO AIACHE CORDEIRO" }
+                                    }
+                                } }
+                            }
+                        } },
+                         { "Andamentos", new BsonArray(){
+                            new BsonDocument()
+                            {
+                                { "Data", "2017-05-08T00:00:00.000Z" },
+                                { "Corpo", "Remetidos os Autos (em diligência) para Secretaria Certidão - Baixa de Recurso" }
+                            },
+                            new BsonDocument()
+                            {
+                                 { "Data", "2017-05-08T00:00:00.000Z" },
+                                 { "Corpo", "Baixa Definitiva" }
+                            },
+                            new BsonDocument()
+                            {
+                                { "Data", "2017-05-08T00:00:00.000Z" },
+                                { "Corpo", "Transitado em Julgado em &#034;data&#034; TRÂNSITO EM JULGADO Certifico que, transcorrido in albis o prazo para interposição de eventual recurso, a decisão monocrática, proferida às páginas 218/223, transitou em julgado para as partes no dia 03.05.2017." }
+                            }
+                         } }
+                    } },
+            };
+            json["UltimaAtualizacao"] = "2021 - 05 - 22T13: 16:39.799Z";
+            json["ano"] = "2012";
+            json["date"] = "2021-05-22T13:16:39.799Z";
+            json["ej"] = false;
+            json["estado"] = "ac";
+            json["estadoDoProcesso"] = "baixado";
+            json["namespace"] = "su.module.legal.lawsuit.0015773-64.2012.8.01.0001";
+            json["padrao"] = "cnj";
+            json["processoOriginal"] = "";
+            json["setorjustica"] = "comum";
+            json["tribunal"] = "tjac";
+            json["Tag"] = new BsonArray()
+            {
+                { "NILCE¿S TUR AGÊNCIA DE VIAGENS E TURISMO LTDA" },
+                { "RODRIGO AIACHE CORDEIRO" },
+                { "JOHONNIS DE ARAÚJO MEDEIROS" },
+                { "LUCAS VIEIRA CARVALHO" },
+                { "MARIA LUCIEUDA S. S. CASTRO" },
+                { "MARCUS VENICIUS NUNES DA SILVA" },
+                { "ROBSON SHELTON MEDEIROS DA SILVA" },
+                { "JOÃO PAULO DE SOUSA OLIVEIRA" },
+                { "LEONARDO SIMÃO DE ARAÚJO" },
+                { "0015773-64.2012.8.01.0001" },
+                { "8.01.ESAJ.1" },
+                { "8.01" },
+                { "GILLIARD SILVA DE SOUZA" },
+                { "GILIARD SILVA DE SOUZA" },
+                { "NILCES TUR AGÊNCIA DE VIAGENS E TURISMO LTDA" },
+                { "8.01.ESAJ.2" }
+            };
+
+            json["tipoPartes"] = new BsonArray(){
+                     new BsonDocument(){
+                         { "nome", "NILCE¿S TUR AGÊNCIA DE VIAGENS E TURISMO LTDA" },
+                         { "tipoParte", "reu"}
+                     },
+                     new BsonDocument(){
+                         { "nome", "RODRIGO AIACHE CORDEIRO" },
+                         { "tipoParte", "advogado" }
+                     },
+                     new BsonDocument(){
+                         { "nome", "JOHONNIS DE ARAÚJO MEDEIROS" },
+                         { "tipoParte", "outro" }
+                     }
+             };
+
+            json["Classes"] = new BsonArray()
+            {
+                "Cumprimento de sentença",
+                "Apelação Cível"
+            };
+            json["Varas"] = new BsonArray()
+            {
+                 "2ª Vara Cível",
+                 "Segunda Câmara Cível"
+            };
+            json["Assuntos"] = "Efeito Suspensivo / Impugnação / Embargos à Execução";
+
+            string dados = json.ToJson();
+
+            return dados;
+        }
+    }
+}
+
